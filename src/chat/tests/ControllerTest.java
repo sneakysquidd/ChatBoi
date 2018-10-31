@@ -18,7 +18,7 @@ public class ControllerTest
 		testController = new ChatController();
 	}
 
-	@After
+	@After 
 	public void tearDown() throws Exception
 	{
 		testController = null;

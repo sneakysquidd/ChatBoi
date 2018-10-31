@@ -16,9 +16,18 @@ public class ChatBot
 	
 	public ArrayList<String> getResponseList()
 	{
-		return null;
+		return ResponseList;
 	}
 	
+	public String getContent()
+	{
+		return content;
+	}
+	
+	public String getCurrentUser()
+	{
+		return currentUser;
+	}
 	/**
 	 * Setters
 	 */
@@ -53,19 +62,33 @@ public class ChatBot
 	private void buildTheLists()
 	{
 		//response list
-		ResponseList.add("How's it going!");
-		ResponseList.add("Thats pretty cool");
+		ResponseList.add("How's it going! Hello!");
+		ResponseList.add("All minions are immortal. Don't believe me? watch the minion movie");
 		ResponseList.add("Nice");
-		ResponseList.add("Cool beans bro");
+		ResponseList.add("Epic. Banana");
 		ResponseList.add("Adios mi amigo");
-		ResponseList.add("Who died?");
+		ResponseList.add("Goodbye sir");
+		ResponseList.add("?");
+		ResponseList.add("Thats what I heard");
+		ResponseList.add("that is funny");
+		ResponseList.add("Have you tried googling it?");
+		ResponseList.add("If you say so");
+		ResponseList.add("Really?");
+		ResponseList.add("Who?");
+		ResponseList.add("Why?");
+		ResponseList.add("uWu");
+		ResponseList.add("xd lol");
 		
 		//spooky doo
-		SpookyList.add("ya like minions?");
+		SpookyList.add("ya like minions? or Halloween?"); 
 		SpookyList.add("SpOoKy");
 		SpookyList.add("You shall be followed by a skelington");
 		SpookyList.add("It's over for you");
 		SpookyList.add("Pumpkin Smashing");
+		SpookyList.add("Trick or Treat");
+		SpookyList.add("Pumpkin carving");
+		SpookyList.add("Yaga yote");
+		SpookyList.add("Halloween");
 	}
 	
 	public Boolean legitimacyChecker(String userText)
@@ -76,25 +99,88 @@ public class ChatBot
 		{
 			isValid = false;
 		}
-		else if (userText.length() < 2) 
+		else if (userText == "")
 		{
 			isValid = false;
 		}
+		else if (userText.length() > 1) 
+		{
+			isValid = true;
+		}
 		else if (userText.contains("sdf") || userText.contains("jkl") || userText.contains("cvb"))
 		{
+			isValid = false;
+		}
+		else if (userText == "asdfghjkl" )
+		{
+			isValid = false;
+		}
+
+			return isValid;
+	}
+	
+	public Boolean contentChecker(String userText)
+	{
+		boolean isContent = true;
+		
+		return isContent;
+	}
+	public Boolean spookyChecker(String userText)
+	{
+		boolean isSpooky = true;
+		
+		
+		for(String phrase : SpookyList)
+		{
+			if (userText.contains(phrase))
+			{
+				isSpooky = true;
+			}
+			else
+			{
+				isSpooky = false;
+			}
 			
 		}
-			return isValid;
+		
+		if (userText.contains("Halloween"))
+		{
+			isSpooky = true;
+		}
+		/**
+		if(userText == null)
+		{
+			isSpooky = false;
+		}
+		else if (userText.contains("Halloween"))
+		{
+			isSpooky = true;
+		}
+		else if (SpookyList.contains("Halloween"))
+		{
+			isSpooky = true;
+		}
+		else if (userText.contains("Easter"))
+		{
+			isSpooky = false;
+		}
+		**/
+		return isSpooky;
+		
 	}
 	
 	
 	public String processText(String userText)
 	{
-		String answer = "";
+		userText += "You said: " + userText;
+		userText += "Chatbot says: " + userText;
 		
-		answer += "you said: " + userText;
-		
-		return answer;
+		return userText;
+	}
+
+	public ChatBot(String string)
+	{
+		content = "sample content";
 	}
 
 
