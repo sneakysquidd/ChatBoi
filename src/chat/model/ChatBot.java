@@ -1,6 +1,8 @@
 package chat.model;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class ChatBot
 {
 
@@ -130,17 +132,12 @@ public class ChatBot
 		boolean isSpooky = true;
 		
 		
-		for(String phrase : SpookyList)
+		for(String Phrase : SpookyList)
 		{
-			if (userText.contains(phrase))
+			if (userText.contains(Phrase))
 			{
 				isSpooky = true;
 			}
-			else
-			{
-				isSpooky = false;
-			}
-			
 		}
 		
 		if (userText.contains("Halloween"))
@@ -160,11 +157,12 @@ public class ChatBot
 		{
 			isSpooky = true;
 		}
+		**/
 		else if (userText.contains("Easter"))
 		{
 			isSpooky = false;
 		}
-		**/
+		
 		return isSpooky;
 		
 	}
@@ -172,10 +170,33 @@ public class ChatBot
 	
 	public String processText(String userText)
 	{
-		userText += "You said: " + userText;
-		userText += "Chatbot says: " + userText;
+	
+		String botAnswer = "";
+		String userInput = "";
 		
-		return userText;
+		userInput += "You said: " + userText;
+		botAnswer += "Chatbot says: " + ResponseList;
+				
+		return userInput + botAnswer;
+		
+		/**
+		String botText = "";
+		
+		if (userText == null)
+		{
+			botText = botText + "Your text is null fella";
+		}
+		
+		if (userText == "")
+		{
+			botText = botText + "It seems like you entered nothing";
+		}
+		
+		userText = "You said: " + userText;
+		botAnswer = "Chatbot says: " + botText;
+	//	chatbotText = chatbotNullResponse;
+		**/
+		
 	}
 
 	public ChatBot(String string)
