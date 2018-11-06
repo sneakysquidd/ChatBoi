@@ -8,22 +8,19 @@ public class ChatController
 {
 	private ChatBot simpleBot;
 
-	public  void Controller()
+	public void Controller()
 	{
 		simpleBot = new ChatBot();
 	}
 
 	public void start()
-	{
-		//String UserInput = "";
-		
-			String userInput = "";
+	{	
+			String userInput = JOptionPane.showInputDialog("Howdy");
 					
 			while(!userInput.equalsIgnoreCase("quit"))
 			{
 				userInput = interactWithChatbot(userInput);
 			}
-	
 	}
 
 	
@@ -31,7 +28,13 @@ public class ChatController
 	{
 		String output = "";
 		String userResponse = JOptionPane.showInputDialog(null, "Hi");
-		output = simpleBot.processText(userResponse);
+		text = userResponse;
+		if (text == null)
+		{
+		 	JOptionPane.showMessageDialog(null, "You can't input a null value");
+		 	text = "null";
+		}
+
 		
 		return output;
 	}

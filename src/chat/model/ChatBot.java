@@ -97,17 +97,13 @@ public class ChatBot
 	{
 		boolean isValid = true;
 		
-		if(userText == null)
+		if(userText == null || userText =="")
 		{
 			isValid = false;
 		}
-		else if (userText == "")
+		else if (userText.length() < 1) 
 		{
 			isValid = false;
-		}
-		else if (userText.length() > 1) 
-		{
-			isValid = true;
 		}
 		else if (userText.contains("sdf") || userText.contains("jkl") || userText.contains("cvb"))
 		{
@@ -144,20 +140,6 @@ public class ChatBot
 		{
 			isSpooky = true;
 		}
-		/**
-		if(userText == null)
-		{
-			isSpooky = false;
-		}
-		else if (userText.contains("Halloween"))
-		{
-			isSpooky = true;
-		}
-		else if (SpookyList.contains("Halloween"))
-		{
-			isSpooky = true;
-		}
-		**/
 		else if (userText.contains("Easter"))
 		{
 			isSpooky = false;
@@ -170,16 +152,15 @@ public class ChatBot
 	
 	public String processText(String userText)
 	{
-	
-		String botAnswer = "";
-		String userInput = "";
 		
+	/**	
 		userInput += "You said: " + userText;
 		botAnswer += "Chatbot says: " + ResponseList;
 				
 		return userInput + botAnswer;
+		**/
 		
-		/**
+		String botAnswer = "";
 		String botText = "";
 		
 		if (userText == null)
@@ -195,14 +176,12 @@ public class ChatBot
 		userText = "You said: " + userText;
 		botAnswer = "Chatbot says: " + botText;
 	//	chatbotText = chatbotNullResponse;
-		**/
 		
+		return userText + botAnswer;
 	}
 
 	public ChatBot(String string)
 	{
 		content = "sample content";
 	}
-
-
 }
