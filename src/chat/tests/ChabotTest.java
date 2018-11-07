@@ -6,16 +6,16 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import chat.model.ChatBot;
+import chat.model.Chatbot;
 
 public class ChabotTest
 {
-	private ChatBot testedBot;
+	private Chatbot testedBot;
 
 	@Before
 	public void setUp() throws Exception
 	{
-		testedBot = new ChatBot();
+		testedBot = new Chatbot();
 		
 	}
 
@@ -53,7 +53,7 @@ public class ChabotTest
 	@Test
 	public void testChatbotString()
 	{
-		testedBot = new ChatBot("sample content");
+		testedBot = new Chatbot("sample content");
 		assertTrue("String constructor needs to assign to the content variable", testedBot.getContent().equals("sample content"));
 	}
 

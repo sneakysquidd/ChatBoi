@@ -1,16 +1,16 @@
 package chat.controller;
 import javax.swing.JOptionPane;
 
-import chat.model.ChatBot;
+import chat.model.Chatbot;
 
 
 public class ChatController
 {
-	private ChatBot simpleBot;
+	private Chatbot simpleBot;
 
-	public void Controller()
+	public ChatController()
 	{
-		simpleBot = new ChatBot();
+		simpleBot = new Chatbot();
 	}
 
 	public void start()
@@ -26,28 +26,39 @@ public class ChatController
 	
 	public String interactWithChatbot(String text)
 	{
-		String output = "";
-		String userResponse = JOptionPane.showInputDialog(null, "Hi");
+		String isNull = "not null";
+//		String output = "";
+		String userResponse = JOptionPane.showInputDialog("Hi");
 		text = userResponse;
 		if (text == null)
 		{
 		 	JOptionPane.showMessageDialog(null, "You can't input a null value");
-		 	text = "null";
+		 	isNull = "null";
 		}
-
-		
-		return output;
+		return isNull;
 	}
 	
 	public String useChatbotCheckers(String text)
 	{
-		String output = "";
-		String userResponse = JOptionPane.showInputDialog(null, "Wazzzzzup");
 		
-		return output;
+		String testedValues = "The following checkers passed successfully: ";
+		if (simpleBot.contentChecker(text))
+		{
+			testedValues += "\nContent Checker";
+		}
+		if (simpleBot.spookyChecker(text))
+		{
+			testedValues += "\nSpooky Checker Happy Halloween";
+		}
+		if (simpleBot.legitimacyChecker(text))
+		{
+			testedValues += "\nLegitimacy Checker";
+		}
+		
+		return testedValues;
 	}
 	
-	public ChatBot getChatbot()
+	public Chatbot getChatbot()
 	{
 		return simpleBot;
 	}

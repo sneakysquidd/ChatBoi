@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-public class ChatBot
+public class Chatbot
 {
 
 	/**
@@ -49,7 +49,7 @@ public class ChatBot
 	private String currentUser;
 	private String joke;
 	
-	public ChatBot()
+	public Chatbot()
 	{
 		this.joke = "";
 		this.content = new String("");
@@ -105,15 +105,10 @@ public class ChatBot
 		{
 			isValid = false;
 		}
-		else if (userText.contains("sdf") || userText.contains("jkl") || userText.contains("cvb"))
+		else if (userText.contains("sdf") || userText.contains("jkl") || userText.contains("cvb") || userText == "asdfghjkl")
 		{
 			isValid = false;
 		}
-		else if (userText == "asdfghjkl" )
-		{
-			isValid = false;
-		}
-
 			return isValid;
 	}
 	
@@ -161,6 +156,7 @@ public class ChatBot
 		**/
 		
 		String botAnswer = "";
+		
 		String botText = "";
 		
 		if (userText == null)
@@ -180,8 +176,10 @@ public class ChatBot
 		return userText + botAnswer;
 	}
 
-	public ChatBot(String string)
+	public Chatbot(String string)
 	{
 		content = "sample content";
 	}
+
+
 }
