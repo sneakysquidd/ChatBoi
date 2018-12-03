@@ -2,15 +2,18 @@ package chat.controller;
 import javax.swing.JOptionPane;
 
 import chat.model.Chatbot;
+import chat.view.ChatFrame;
 
 
 public class ChatController
 {
 	private Chatbot simpleBot;
-
+	private Frame appFrame;
+	
 	public ChatController()
 	{
 		simpleBot = new Chatbot();
+		appFrame = new Frame(this);
 	}
 
 	public void start()
