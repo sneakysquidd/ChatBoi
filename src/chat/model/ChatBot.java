@@ -16,7 +16,7 @@ public class Chatbot
 		return SpookyList;
 	}
 	
-	public ArrayList<String> getresponseList()
+	public ArrayList<String> getResponseList()
 	{
 		return responseList;
 	}
@@ -141,36 +141,29 @@ public class Chatbot
 		}
 		
 		return isSpooky;
-		
 	}
 	
 	
 	public String processText(String userText)
 	{
-		
-	/**	
-		userInput += "You said: " + userText;
-		botAnswer += "Chatbot says: " + responseList;
-				
-		return userInput + botAnswer;
-		**/
-		
 		String answer = "";
-		if (userText == null)
+		
+		if (!legitimacyChecker(userText))
 		{
-			answer += "Dont send null";
+			answer += "You really should not send null\n";
 		}
-		else 
+		else
 		{
-			answer += "You said: " + userText;
+			answer += "You said the special words.\n";
 			
-			if(contentChecker(userText))
+			if (contentChecker(userText))
 			{
-				answer += "You said the special words";
+				answer += "You said: " + userText + "\n";
 			}
+			int randomIndex = (int) (responseList.size() * Math.random());
+			answer += "Chatbot says: " + responseList.get(randomIndex) + "\n";
 		}
-		int randomIndex = (int) (responseList.size() * Math.random());
-		return answer += "Chatbot says: " + responseList.get(randomIndex);
+		return answer;
 	}
 
 	public Chatbot(String string)
