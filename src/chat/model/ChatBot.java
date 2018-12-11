@@ -1,6 +1,6 @@
 package chat.model;
 import java.util.ArrayList;
-import java.util.Random;
+
 import javax.swing.JOptionPane;
 
 public class Chatbot
@@ -18,7 +18,7 @@ public class Chatbot
 	
 	public ArrayList<String> getResponseList()
 	{
-		return responseList;
+		return ResponseList;
 	}
 	
 	public String getContent()
@@ -35,7 +35,7 @@ public class Chatbot
 	 */
 
 	// private constructors
-	private ArrayList <String> responseList;
+	private ArrayList <String> ResponseList;
 	{
 
 	}
@@ -55,7 +55,7 @@ public class Chatbot
 		this.content = new String("");
 		this.currentUser = new String("");
 		
-		this.responseList = new ArrayList<String>();
+		this.ResponseList = new ArrayList<String>();
 		this.SpookyList = new ArrayList<String>();
 		
 		buildTheLists();
@@ -64,22 +64,22 @@ public class Chatbot
 	private void buildTheLists()
 	{
 		//response list
-		responseList.add("How's it going! Hello!");
-		responseList.add("All minions are immortal. Don't believe me? watch the minion movie");
-		responseList.add("Nice");
-		responseList.add("Epic. Banana");
-		responseList.add("Adios mi amigo");
-		responseList.add("Goodbye sir");
-		responseList.add("?");
-		responseList.add("Thats what I heard");
-		responseList.add("that is funny");
-		responseList.add("Have you tried googling it?");
-		responseList.add("If you say so");
-		responseList.add("Really?");
-		responseList.add("Who?");
-		responseList.add("Why?");
-		responseList.add("uWu");
-		responseList.add("xd lol");
+		ResponseList.add("How's it going! Hello!");
+		ResponseList.add("All minions are immortal. Don't believe me? watch the minion movie");
+		ResponseList.add("Nice");
+		ResponseList.add("Epic. Banana");
+		ResponseList.add("Adios mi amigo");
+		ResponseList.add("Goodbye sir");
+		ResponseList.add("?");
+		ResponseList.add("Thats what I heard");
+		ResponseList.add("that is funny");
+		ResponseList.add("Have you tried googling it?");
+		ResponseList.add("If you say so");
+		ResponseList.add("Really?");
+		ResponseList.add("Who?");
+		ResponseList.add("Why?");
+		ResponseList.add("uWu");
+		ResponseList.add("xd lol");
 		
 		//spooky doo
 		SpookyList.add("ya like minions? or Halloween?"); 
@@ -141,29 +141,39 @@ public class Chatbot
 		}
 		
 		return isSpooky;
+		
 	}
 	
 	
 	public String processText(String userText)
 	{
-		String answer = "";
 		
-		if (!legitimacyChecker(userText))
+	/**	
+		userInput += "You said: " + userText;
+		botAnswer += "Chatbot says: " + ResponseList;
+				
+		return userInput + botAnswer;
+		**/
+		
+		String botAnswer = "";
+		
+		String botText = "";
+		
+		if (userText == null)
 		{
-			answer += "You really should not send null\n";
+			botText = botText + "Your text is null fella";
 		}
-		else
+		
+		if (userText == "")
 		{
-			answer += "You said the special words.\n";
-			
-			if (contentChecker(userText))
-			{
-				answer += "You said: " + userText + "\n";
-			}
-			int randomIndex = (int) (responseList.size() * Math.random());
-			answer += "Chatbot says: " + responseList.get(randomIndex) + "\n";
+			botText = botText + "It seems like you entered nothing";
 		}
-		return answer;
+		
+		userText = "You said: " + userText;
+		botAnswer = "Chatbot says: " + botText;
+	//	chatbotText = chatbotNullResponse;
+		
+		return userText + botAnswer;
 	}
 
 	public Chatbot(String string)
