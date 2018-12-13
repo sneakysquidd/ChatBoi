@@ -37,7 +37,6 @@ public class IOController
 	}
 		
 	
-	
 	public static void saveText(ChatController app, String path, String textToSave)
 	{
 		try
@@ -46,7 +45,8 @@ public class IOController
 			Calendar date = Calendar.getInstance();
 			
 			//Adds the calendar day, month, hour, and minute to the file path name
-			filename += "/" + date.get(Calendar.MONTH) + " " + date.get(Calendar.DAY_OF_MONTH);
+			filename += "/" + date.get(Calendar.MONTH) + "-" + date.get(Calendar.DAY_OF_MONTH);
+			filename += "-";
 			filename += date.get(Calendar.HOUR) + "-" + date.get(Calendar.MINUTE); 
 			filename += " chatbot save.txt";
 					

@@ -68,7 +68,7 @@ public class Chatbot
 		ResponseList.add("All minions are immortal. Don't believe me? watch the minion movie");
 		ResponseList.add("Nice");
 		ResponseList.add("Epic. Banana");
-		ResponseList.add("Adios mi amigo");
+		ResponseList.add("hmmm");
 		ResponseList.add("Goodbye sir");
 		ResponseList.add("?");
 		ResponseList.add("Thats what I heard");
@@ -136,7 +136,8 @@ public class Chatbot
 			isContent = false;
 		}
 
-		else if (userText == null) {
+		else if (userText == null) 
+		{
 			isContent = false;
 		}
 		return isContent;
@@ -192,8 +193,9 @@ public class Chatbot
 			botText = botText + "It seems like you entered nothing";
 		}
 		
-		userText = "You said: " + userText;
-		botAnswer = "Chatbot says: " + botText;
+		userText = "You said: " + userText + "\n";
+		int randomIndex = (int) (ResponseList.size()* Math.random());
+		botAnswer = "Chatbot says: " + ResponseList.get(randomIndex) + "\n";
 	//	chatbotText = chatbotNullResponse;
 		
 		return userText + botAnswer;
