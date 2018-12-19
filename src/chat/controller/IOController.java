@@ -36,7 +36,6 @@ public class IOController
 		return contents;
 	}
 		
-	
 	public static void saveText(ChatController app, String path, String textToSave)
 	{
 		try
