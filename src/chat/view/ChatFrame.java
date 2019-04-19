@@ -20,8 +20,10 @@ public class ChatFrame extends JFrame
 	
 	private void setupFrame()
 	{
+		int fortnite = 1024;
+		
 		this.setContentPane(appPanel);
-		this.setSize(800, 800);
+		this.setSize(fortnite, 768);
 		this.setTitle("hmmmmm");
 		this.setResizable(true);
 		this.setVisible(true);

@@ -36,8 +36,7 @@ public class ChatController
 		if (simpleBot.contentChecker(text))
 		{
 			testedValues += "\nContent Checker";
-		}
-		if (simpleBot.spookyChecker(text))
+		} 		if (simpleBot.spookyChecker(text))
 		{
 			testedValues += "\nSpooky Checker Happy Halloween";
 		}
