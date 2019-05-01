@@ -206,11 +206,11 @@ public class ChatTwitter
 		turnStatusesToWords();
 		totalWordCount = tweetedWords.size();
 		String [] boring = createIgnoredWordArray();
-//		removeBlanks();
+		removeBlanks();
 		trimTheBoringWords(boring);
 		generateWordCount();
 
-		ArrayList<Map.Entry<String, Integer>> sorted = null; //sortHashMap();	    
+		ArrayList<Map.Entry<String, Integer>> sorted = sortHashMap();	    
 		String mostCommonWord = sorted.get(0).getKey();
 		int maxWord = 0;
 		
@@ -226,5 +226,24 @@ public class ChatTwitter
 		mostCommon += "\n\n" + sortedWords();
 		
 		return mostCommon;
+	}
+	
+	private void removeBlanks()
+	{
+		for (int index = tweetedWords.size() - 1; index >= 0; index--)
+		{
+			if (tweetedWords.get(index).trim().length() == 0)
+			{
+				tweetedWords.remove(index);
+			}
+		}
+	}
+	
+	private ArrayList<Map.Entry<String, Integer>> sortHashMap()
+	{
+		ArrayList<Map.Entry<String, Integer>> entries = new ArrayList<Map.Entry<String, Integer>>(wordsAndCount.entrySet());
+		entries.sort((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()));
+		
+		return entries;
 	}
 }
