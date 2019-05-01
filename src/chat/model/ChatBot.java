@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-public class Chatbot
+public class ChatBot
 {
 
 	/**
@@ -49,7 +49,7 @@ public class Chatbot
 	private String currentUser;
 	private String joke;
 	
-	public Chatbot()
+	public ChatBot()
 	{
 		this.joke = "";
 		this.content = new String("");
@@ -201,7 +201,7 @@ public class Chatbot
 		return userText + botAnswer;
 	}
 
-	public Chatbot(String string)
+	public ChatBot(String string)
 	{
 		content = "sample content";
 	}
